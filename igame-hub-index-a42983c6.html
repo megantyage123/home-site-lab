@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f2f2;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 32px 20px;
+    }
+
+    .magazine {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅 — 杂志封面感 */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+      border: 1px solid #e0e0e0;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+      padding: 48px 40px 40px 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .hero:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .hero .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8a8a8a;
+      background: #ececec;
+      padding: 4px 16px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: -0.02em;
+      color: #1f1f1f;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero h1 strong {
+      font-weight: 480;
+      color: #2d5f4b;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #4d4d4d;
+      max-width: 680px;
+      margin: 0 auto 8px auto;
+    }
+
+    .hero .decor {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #8c8c8c;
+      border-top: 1px solid #dadada;
+      padding-top: 24px;
+      display: inline-block;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e2e2;
+      border-radius: 24px;
+      padding: 32px 36px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1e3a3a;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      border-left: 4px solid #c0d0c0;
+      padding-left: 18px;
+    }
+
+    .card p {
+      margin-bottom: 1em;
+      color: #3b3b3b;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card .inset-link {
+      margin-top: 8px;
+      font-style: normal;
+    }
+
+    /* 页尾区域 — 杂志 outtro */
+    .outtro {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 24px;
+      padding: 28px 36px 32px 36px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .outtro p {
+      font-size: 1rem;
+      color: #4e4e4e;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .outtro .signature {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #8a8a8a;
+      border-top: 1px solid #ececec;
+      padding-top: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    /* 链接风格 */
+    a {
+      color: #2f5b4a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-bottom 0.15s, color 0.15s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      border-bottom: 1px solid #2f5b4a;
+      color: #1a3d30;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 12px;
+      }
+
+      .hero {
+        padding: 32px 18px 28px 18px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
+
+      .card h2 {
+        font-size: 1.25rem;
+        padding-left: 14px;
+      }
+
+      .outtro {
+        padding: 24px 18px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine">
+
+  <!-- hero 横幅 -->
+  <header class="hero">
+    <div class="tag">专题 · 导航</div>
+    <h1>稳定入口 · <strong>爱游戏</strong> 的背后</h1>
+    <p>一个不喧哗的站点，为真正在意游戏体验的人保留着安静、直接的通道。<br>没有弹窗，没有干扰，只有纯粹的内容和清晰的方向。</p>
+    <div class="decor">——— 从一处说明开始 ———</div>
+  </header>
+
+  <!-- 三段自然介绍（卡片分区） -->
+  <div class="card-grid">
+
+    <section class="card">
+      <h2>入口的初衷</h2>
+      <p>很多游戏站点热衷于制造紧迫感，但 <a href="https://igame-hub.com">爱游戏</a> 选择了另一种方式：它把自己定位成一个稳定的参照点。不论外部环境如何变化，这里始终提供一致的页面结构和可依赖的导航逻辑。对于经常查找游戏信息或需要固定起点的用户来说，这种克制反而成了一种优势。</p>
+      <p>你不需要反复确认地址是否失效，也不必担心下次访问时界面面目全非。稳定，本身就是一种对时间的尊重。</p>
+    </section>
+
+    <section class="card">
+      <h2>背景与边界</h2>
+      <p>爱游戏并不过度解释自己，但它清晰地画出了一条边界：仅呈现与游戏相关的实用信息，不夹杂社交动态、竞价排名或自动播放的内容流。页面上的每一条文字都经过斟酌，确保阅读者能快速掌握当前板块的用途。</p>
+      <p>这种风格适合那些希望快速找到内容、又不愿被多余元素消耗精力的访客。与其说它是一个门户，不如说它是一份静态的杂志——每一期都安静地等在那里，翻开即可阅读。</p>
+    </section>
+
+    <section class="card">
+      <h2>场景与节奏</h2>
+      <p>无论是用手机在通勤路上浏览，还是在电脑前仔细比对游戏资料，<a href="https://igame-hub.com">爱游戏</a> 的布局都会自然地适应屏幕。它没有为了炫目而牺牲加载速度，也没有因为追求简洁而丢失必要的指引。</p>
+      <p>从首页到内页，节奏是平缓的：你总能先看到标题，然后是一段简短的说明，最后才是具体的链接或内容。这种结构让人感到从容，也降低了误操作的可能。如果你恰好厌倦了那些充满跳动广告的站点，这里或许会让你松一口气。</p>
+    </section>
+
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <footer class="outtro">
+    <p>如果你正在寻找一个干净、稳定的游戏信息起点，不妨把 <a href="https://igame-hub.com">爱游戏</a> 放在书签里。<br>它不一定是最华丽的，但可能是最让你安心打开的那个页面。</p>
+    <div class="signature">—— 杂志式索引 · 不追逐流量，只提供路径 ——</div>
+  </footer>
+
+</div>
+</body>
+</html>
