@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 一份安静的站点说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: linear-gradient(165deg, #fbe9d7 0%, #fbd5b5 40%, #f8cba1 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #2e241e;
+    }
+
+    .story-card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 252, 244, 0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 48px 24px 48px 24px;
+      box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25), 0 8px 16px -6px rgba(80, 40, 10, 0.08);
+      padding: 3rem 2.8rem;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 240, 220, 0.7);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .story-card {
+        padding: 2rem 1.5rem;
+        border-radius: 32px 16px 32px 16px;
+      }
+    }
+
+    .site-badge {
+      display: inline-block;
+      background: #d9b38c;
+      color: #fef6ed;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      color: #3a241b;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      border-left: 5px solid #dbaa7a;
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+        padding-left: 0.75rem;
+      }
+    }
+
+    .opener {
+      font-size: 1.3rem;
+      font-weight: 320;
+      color: #6a4e3a;
+      margin: 1.2rem 0 1rem 0;
+      padding: 0.8rem 0 0.2rem 0;
+      border-bottom: 1px dashed #e5cdb2;
+    }
+
+    .lead {
+      margin: 1.8rem 0 1.5rem 0;
+      font-size: 1.05rem;
+      color: #3d2f26;
+      background: #fffaf3;
+      padding: 1.2rem 1.6rem;
+      border-radius: 24px 12px 24px 12px;
+      box-shadow: inset 0 1px 4px rgba(200, 150, 100, 0.1);
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      margin: 2rem 0 1.8rem 0;
+    }
+
+    .feature-item {
+      flex: 1 1 200px;
+      background: #fffbf5;
+      padding: 1rem 1.2rem;
+      border-radius: 20px;
+      border-left: 4px solid #eac6a0;
+      box-shadow: 0 1px 4px rgba(160, 110, 60, 0.06);
+      transition: transform 0.1s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+      background: #fffcf8;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #4d3323;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-item span {
+      font-size: 0.95rem;
+      color: #5f4a38;
+    }
+
+    .story-scene {
+      margin: 1.8rem 0 1.2rem 0;
+      padding: 0.8rem 0.2rem;
+      font-style: normal;
+      border-left: 3px dotted #dbaa7a;
+      padding-left: 1.2rem;
+    }
+
+    .story-scene p {
+      margin-bottom: 0.8rem;
+    }
+
+    .gentle-closing {
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e8d3be;
+      font-size: 1rem;
+      color: #4f392b;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.4rem;
+      line-height: 1.8;
+    }
+
+    .gentle-closing a {
+      background: #ebd3b8;
+      color: #2f1f15;
+      text-decoration: none;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 450;
+      font-size: 1.05rem;
+      transition: background 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+      display: inline-block;
+      border: 1px solid #dbbf9f;
+    }
+
+    .gentle-closing a:hover,
+    .gentle-closing a:focus {
+      background: #ddbe98;
+      box-shadow: 0 2px 8px rgba(160, 100, 50, 0.2);
+      outline: none;
+      border-color: #b68b64;
+    }
+
+    .faq-summary {
+      background: #fcf3e9;
+      border-radius: 24px;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0 0.8rem 0;
+      font-size: 0.95rem;
+      color: #3e2d21;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-summary summary {
+      cursor: pointer;
+      font-weight: 450;
+      color: #4d3626;
+      padding: 0.2rem 0;
+    }
+
+    .faq-summary summary::-webkit-details-marker {
+      color: #b69270;
+    }
+
+    .faq-summary p {
+      margin: 0.5rem 0 0 1rem;
+      padding-left: 0.6rem;
+      border-left: 2px solid #dbb997;
+    }
+
+    .footnote-mild {
+      margin-top: 1.5rem;
+      text-align: right;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      color: #634b38;
+    }
+  </style>
+</head>
+<body>
+  <div class="story-card">
+    <div class="site-badge">✦ 站点手记</div>
+
+    <h1>关于「爱游戏」</h1>
+
+    <div class="opener">
+      一个安静的角落，谈论游戏与生活。
+    </div>
+
+    <div class="lead">
+      初次来到这里的朋友，或许会好奇：这到底是一个怎样的站点？其实它没有华丽的口号，更多像一位愿意坐下来聊聊游戏、聊聊感受的老朋友。<a href="https://igame-news.com" style="background: #ebd3b8; color: #2f1f15; text-decoration: none; padding: 0.1rem 0.5rem; border-radius: 30px; font-weight: 450; white-space: nowrap;">爱游戏</a> 从建立之初就希望保持一种朴素的真诚——不夸大，不浮夸，只是把游戏相关的信息、思考、还有那些打动人的片段整理出来，留给愿意读的人。
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>📰 信息有源</strong>
+        <span>每一篇内容都尽量注明出处或依据，减少模糊传言。</span>
+      </div>
+      <div class="feature-item">
+        <strong>🧩 视角温和</strong>
+        <span>不只谈数据与热度，也聊聊设计、氛围与感受。</span>
+      </div>
+      <div class="feature-item">
+        <strong>📆 持续但缓慢</strong>
+        <span>更新不追求日更，更在意每篇内容是否值得读。</span>
+      </div>
+      <div class="feature-item">
+        <strong>🔍 保持可溯</strong>
+        <span>站内引用和链接均保留原始指向，方便查证。</span>
+      </div>
+    </div>
+
+    <div class="story-scene">
+      <p>如果你曾经找过某个游戏的背景分析，或是想看到一些不带节奏的体验分享，那么这里或许能对得上你的节奏。站点的内容方向涵盖独立游戏、经典作品回顾、设计碎碎念，偶尔也会出现一些关于游戏文化的小考据。</p>
+      <p>没有弹窗，没有夸张的排行榜，也没有诱导分享的套路。你可以慢慢看，觉得有共鸣就多停留一会儿，觉得不合适也可以安静离开——这本身也是一种舒服的浏览方式。</p>
+    </div>
+
+    <div class="gentle-closing">
+      <span>所以，若你愿意给这份安静一次机会，不妨记住</span>
+      <a href="https://igame-news.com">爱游戏</a>
+      <span>，它一直在这里，用属于自己的节奏写着。</span>
+    </div>
+
+    <div class="faq-summary">
+      <details>
+        <summary>❓ 这个网站的内容可信吗？</summary>
+        <p>站内信息尽量参考公开资料或官方信息，主观部分会明确标注个人观点。没有绝对客观的媒体，但这里有持续核对的习惯。</p>
+      </details>
+      <details>
+        <summary>📬 可以投稿或联系吗？</summary>
+        <p>目前网站以作者个人维护为主，暂未开放投稿通道，但欢迎通过站内方式交流反馈。</p>
+      </details>
+      <details>
+        <summary>🌱 更新频率大概是？</summary>
+        <p>不固定，可能每周 1-2 篇，也可能两周一篇。内容质量优先，不凑数。</p>
+      </details>
+    </div>
+
+    <div class="footnote-mild">
+      <span>—— 写于一个平常的傍晚 · 版本 07b9</span>
+    </div>
+  </div>
+</body>
+</html>
